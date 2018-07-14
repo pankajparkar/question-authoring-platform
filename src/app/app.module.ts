@@ -10,9 +10,12 @@ import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButt
 import { LayoutModule } from '@angular/cdk/layout';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '../../node_modules/@angular/forms';
+import { QuestionListComponent } from './question-list/question-list.component';
 
 let routes: Routes = [
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'question-list', component: QuestionListComponent },
+  { path: '**', component: LoginComponent },
 ];
 
 @NgModule({
@@ -20,11 +23,14 @@ let routes: Routes = [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    QuestionListComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {
+      useHash: true
+    }),
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
