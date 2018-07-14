@@ -1,23 +1,24 @@
 <h1>Question List`</h1>
 <div class="selection-bar">
   <div>
-    <mat-checkbox (change)="changed($event)">Check me!</mat-checkbox>
+    <mat-checkbox (change)="selectAllToggle($event)">Check me!</mat-checkbox>
     Select All
   </div>
   <div>
     Select Question to Assign
-    <button mat-raised-button>Assign</button>
+    <button mat-raised-button [disabled]="!selectedQuestions()">Assign</button>
     <button mat-raised-button>Author New Question</button>
   </div>
   <div></div>
 </div>
 <mat-selection-list #questionsList (selectionChange)="changed($event)">
-  <mat-list-option checkboxPosition="before" *ngFor="let question of questions" [selected]="question.selected">
+  <mat-list-option checkboxPosition="before" *ngFor="let question of questions" (click)="question.selected = !question.selected" [selected]="question.selected">
     <div class="question-wrapper">
       <div class="serial-number">
         <div>Sr No.</div>
         <div>
           {{question.id}}
+          {{question.selected}}
         </div>
       </div>
       <div class="question-description">

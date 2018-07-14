@@ -11,15 +11,23 @@ export class QuestionListComponent implements OnInit {
 
   constructor() { }
 
-  changed(changes){
+  changed(changes) {
     console.log(changes)
+  }
+
+  selectedQuestions() {
+    return (this.questions || []).filter(q => q.selected).length;
+  }
+
+  selectAllToggle(modelChanges) {
+    this.questions.forEach(q => q.selected = modelChanges.checked);
   }
 
   ngOnInit() {
     this.questions = [
-      {id: 1, title: 'Question 1', description: 'Test Question 1', type: 'question' },
-      {id: 2, title: 'Task 2', description: 'Test Question 2', type: 'task' },
-      {id: 3, title: 'Question 3', description: 'Test Question 3', type: 'question' }
+      { id: 1, title: 'Question 1', description: 'Test Question 1', type: 'question' },
+      { id: 2, title: 'Task 2', description: 'Test Question 2', type: 'task' },
+      { id: 3, title: 'Question 3', description: 'Test Question 3', type: 'question' }
     ]
   }
 
