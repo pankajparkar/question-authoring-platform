@@ -1,3 +1,15 @@
-<p>
-  login works!
-</p>
+<div class="login-container">
+  <h1 mat-dialog-title>Please select Login</h1>
+  <div mat-dialog-content>
+    <p>I'm a ...</p>
+    <mat-radio-group>
+      <mat-radio-button value="Student">Student</mat-radio-button>
+      <div></div>
+      <mat-radio-button value="Teacher">Teacher</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  </div>
+</div>
