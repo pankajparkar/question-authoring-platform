@@ -9,7 +9,7 @@ export class QuestionBuilderComponent implements OnInit {
 
   constructor() { }
 
-  favoriteSeason: string;
+  questionType: string;
   questionTypes: any[] = [
     {id: 1, name: 'Multiple choice question', code: 'mcq'},
     {id: 2, name: 'Submission type question', code: 'submission'},
@@ -17,6 +17,7 @@ export class QuestionBuilderComponent implements OnInit {
   ]
 
   ngOnInit() {
+    this.questionType = 'mcq'
   }
 
 }
