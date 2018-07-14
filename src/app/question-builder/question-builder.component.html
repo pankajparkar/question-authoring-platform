@@ -1,0 +1,34 @@
+<div class="question-builder-wrapper">
+  <h1>Question Builder</h1>
+  <mat-divider></mat-divider>
+  <h3>What type of question you want to create</h3>
+  <mat-radio-group class="question-radio-group" [(ngModel)]="questionType">
+    <mat-radio-button class="question-radio-button" *ngFor="let questionType of questionTypes" [value]="questionType">
+      {{questionType.name}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <div class="question-selected-value">Your favorite season is: {{favoriteSeason}}</div>
+  <form class="question-form">
+    <h3>Question Title:</h3>
+    <mat-form-field class="question-full-width">
+      <input matInput placeholder="Type your quesiton title here ..." />
+    </mat-form-field>
+    <h3>Question Description:</h3>
+    <mat-form-field class="question-full-width">
+      <textarea matInput placeholder="Type your quesiton description here ..."></textarea>
+    </mat-form-field>
+    <h3>Ideal Answer:</h3>
+    <mat-form-field class="question-full-width">
+      <textarea matInput placeholder="Type your answer here ..."></textarea>
+    </mat-form-field>
+    <h3>Instructions:</h3>
+    <mat-form-field class="question-full-width">
+      <textarea matInput placeholder="Type your instructions here ... (e.g. file size, file format, do's and don't etc.)"></textarea>
+    </mat-form-field>
+    <div>
+      <div>Click author to create a new question and will be added automatically to the questions list</div>
+      <button mat-raised-button>Cancel</button>
+      <button mat-raised-button color="primary">Author</button>
+    </div>
+  </form>
+</div>

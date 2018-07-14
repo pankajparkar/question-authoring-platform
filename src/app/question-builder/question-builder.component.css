@@ -1,0 +1,21 @@
+.question-builder-wrapper {
+  margin: auto;
+  width: 600px;
+}
+
+.question-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.question-radio-button {
+  margin: 5px;
+}
+
+.question-selected-value {
+  margin: 15px 0;
+}
+
+.question-full-width {
+  width: 100%;
+}
