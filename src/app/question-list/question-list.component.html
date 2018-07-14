@@ -1,3 +1,36 @@
-<p>
-  question-list works!
-</p>
+<h1>Question List`</h1>
+<div class="selection-bar">
+  <div>
+    <mat-checkbox (change)="changed($event)">Check me!</mat-checkbox>
+    Select All
+  </div>
+  <div>
+    Select Question to Assign
+    <button mat-raised-button>Assign</button>
+    <button mat-raised-button>Author New Question</button>
+  </div>
+  <div></div>
+</div>
+<mat-selection-list #questionsList (selectionChange)="changed($event)">
+  <mat-list-option checkboxPosition="before" *ngFor="let question of questions" [selected]="question.selected">
+    <div class="question-wrapper">
+      <div class="serial-number">
+        <div>Sr No.</div>
+        <div>
+          {{question.id}}
+        </div>
+      </div>
+      <div class="question-description">
+        <div class="title">
+          {{question.title}}
+        </div>
+        <div class="description">
+          {{question.description}}
+        </div>
+      </div>
+      <div class="question-type">
+        {{question.description}}
+      </div>
+    </div>
+  </mat-list-option>
+</mat-selection-list>

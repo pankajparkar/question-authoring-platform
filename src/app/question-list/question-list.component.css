@@ -1,0 +1,18 @@
+:host {
+    margin: auto;
+    width: 500px;
+    display: block;
+}
+
+.question-wrapper {
+    display: flex;
+}
+
+.serial-number {
+    display: flex;
+    flex-direction: column;
+}
+
+.question-type {
+
+}
