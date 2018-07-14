@@ -11,11 +11,13 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '../../node_modules/@angular/forms';
 import { QuestionListComponent } from './question-list/question-list.component';
+import { QuestionBuilderComponent } from './question-builder/question-builder.component';
 
 let routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'question-list', component: QuestionListComponent },
-  { path: '**', component: LoginComponent },
+  { path: 'question-builder', component: QuestionBuilderComponent },
+  { path: '**', redirectTo: 'login' },
 ];
 
 @NgModule({
@@ -24,7 +26,8 @@ let routes: Routes = [
     LoginComponent,
     DashboardComponent,
     NavbarComponent,
-    QuestionListComponent
+    QuestionListComponent,
+    QuestionBuilderComponent
   ],
   imports: [
     BrowserModule,
