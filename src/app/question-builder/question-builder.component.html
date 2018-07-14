@@ -3,7 +3,7 @@
   <mat-divider></mat-divider>
   <h3>What type of question you want to create</h3>
   <mat-radio-group class="question-radio-group" [(ngModel)]="questionType">
-    <mat-radio-button class="question-radio-button" *ngFor="let questionType of questionTypes" [value]="questionType">
+    <mat-radio-button class="question-radio-button" *ngFor="let questionType of questionTypes" [value]="questionType.code">
       {{questionType.name}}
     </mat-radio-button>
   </mat-radio-group>
@@ -17,14 +17,48 @@
     <mat-form-field class="question-full-width">
       <textarea matInput placeholder="Type your quesiton description here ..."></textarea>
     </mat-form-field>
-    <h3>Ideal Answer:</h3>
-    <mat-form-field class="question-full-width">
-      <textarea matInput placeholder="Type your answer here ..."></textarea>
-    </mat-form-field>
-    <h3>Instructions:</h3>
-    <mat-form-field class="question-full-width">
-      <textarea matInput placeholder="Type your instructions here ... (e.g. file size, file format, do's and don't etc.)"></textarea>
-    </mat-form-field>
+    <ng-container [ngSwitch]="questionType">
+      <ng-container *ngSwitchCase="'mcq'">
+        <h3>Answer Options:</h3>
+        <mat-selection-list>
+          <mat-list-option>
+            <mat-form-field class="question-full-width">
+              <input matInput placeholder="Type your answer here ..." />
+            </mat-form-field>
+          </mat-list-option>
+          <mat-list-option>
+            <mat-form-field class="question-full-width">
+              <input matInput placeholder="Type your answer here ..." />
+            </mat-form-field>
+          </mat-list-option>
+          <mat-list-option>
+            <mat-form-field class="question-full-width">
+              <input matInput placeholder="Type your answer here ..." />
+            </mat-form-field>
+          </mat-list-option>
+          <mat-list-option>
+            <mat-form-field class="question-full-width">
+              <input matInput placeholder="Type your answer here ..." />
+            </mat-form-field>
+          </mat-list-option>
+        </mat-selection-list>
+        <h3>Instructions:</h3>
+        <mat-form-field class="question-full-width">
+          <textarea matInput placeholder="Type your instructions here ... (e.g. file size, file format, do's and don't etc.)"></textarea>
+        </mat-form-field>
+      </ng-container>
+      <ng-container *ngSwitchCase="'passage'">
+        <h3>Ideal Answer:</h3>
+        <mat-form-field class="question-full-width">
+          <textarea matInput placeholder="Type your answer here ..."></textarea>
+        </mat-form-field>
+      </ng-container>
+      <h3>Instructions:</h3>
+      <mat-form-field class="question-full-width">
+        <textarea matInput placeholder="Type your instructions here ... (e.g. file size, file format, do's and don't etc.)"></textarea>
+      </mat-form-field>
+    </ng-container>
+
     <div>
       <div>Click author to create a new question and will be added automatically to the questions list</div>
       <button mat-raised-button>Cancel</button>
